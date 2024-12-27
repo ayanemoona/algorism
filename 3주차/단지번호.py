@@ -9,7 +9,7 @@ def dfs(x,y):
     max+=1
     for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
         nx, ny = x + dx, y + dy
-        # 좌표가 유효하고, 배추가 있으며, 방문하지 않았다면 DFS 호출
+        
         if 0 <= nx < N and 0 <= ny < N and lst[nx][ny] == '1' and not visit[nx][ny]:
             dfs(nx, ny)
     return max
