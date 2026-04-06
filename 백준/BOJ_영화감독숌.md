@@ -2,7 +2,7 @@
 
 - **문제 링크:** [https://www.acmicpc.net/problem/1436](https://www.acmicpc.net/problem/1436)
 - **상태:** 비효율 (수정 중)
-- **복습 필요:** Y
+- **복습 필요:** N
 
 ---
 
