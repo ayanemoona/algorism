@@ -58,11 +58,32 @@ print(*result)
     (내가 정한 L사이즈를 넘어간 데이터는 볼 필요가 없음 
     예를 들어 나는 3자리 수 로 인덱스 4이면 234 까지 허용 하기 때문에 인덱스1은 삭제 )
     슬라이드 윈도우가 연속된 인덱스의 범위를 나타냄
+    맨 앞 인덱스 > 마지막 인덱스 - 슬라이드윈도우 크기  => 살리기
+    맨 앞 인덱스 <= 마지막 인덱스 - 슬라이드윈도우 크기 => 삭제
+4. 가장 맨 앞이 최솟값이 남게 됨
+```
+from collections import deque
+N, L = map(int,input().split())
+mydeque = deque();  # 덱 선언
+now = list(map(int,input().split()))
 
+for i in range(N):
+    #아이디어 1 나보다 큰 데이터 삭제하기
+    while mydeque and mydeque[-1][0] > noew [i]: # 맨 뒤 데이터 [0번째 값]
+        mydeque.pop()
+    mydeque.append((now[i],i)) #덱에 데이터 삽입 노드 추가 (값, 인덱스)
+    # 슬라이딩 윈도우 벗어난 데이터 삭제 
+    if mydeque[0][1] <= i-L : # 윈도우 범위를 벗어나면
+        mydeque.popleft() # 맨 앞 데이터 삭제
+    print(mydeque[0][0], end=' ') # 맨 앞 데이터 출력
+```
 
 
 
 ---
 
 ## 5. 배운점
-- 덱을 사용 하여 최소값을 찾아내려면 정렬을 하면 오래 걸림 
+- 최소값을 찾아내려면 정렬을 하면 오래 걸림
+- 덱 선언 ( 정렬 안해도 최소값을 구할 수 있음)
+  from collections import deque
+    mydeque = deque();
